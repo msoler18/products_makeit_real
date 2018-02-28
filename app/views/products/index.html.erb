@@ -1,2 +1,17 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>Products</h1>
+<% @products.each do |product|  %>
+	<table style="width:100%">
+  <tr>
+    <th>Product</th>
+    <th>Price</th> 
+    <th>Categories</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%=	product.price  %></td> 
+    <td><%= product.categories.name %></td>
+    <td><p>Edit | Delete</p></td>
+  </tr>
+</table>
+<% end %>
