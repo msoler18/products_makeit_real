@@ -6,7 +6,13 @@
 			<%= form_for @product do |f| %>
 				<%= f.text_field :name, placeholder:"Product name", class: 'form-control' %><br>
 				<%= f.number_field :price, placeholder:"Product price", class: 'form-control' %>
-				<%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+				<%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |c| %>
+					<div class="checkbox">
+						<%= c.label do  %>
+							<%= c.check_box  %> <%= c.object.name  %>
+						<% end %>	
+					</div>
+				<% end %>
 				<%= f.submit @product.new_record? ? "Create" : "Edit", class: 'btn btn-primary' %>
 			<% end %>		
 		</div>
